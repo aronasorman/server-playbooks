@@ -1,0 +1,9 @@
+---
+- hosts: app_servers
+  vars:
+    - users:
+        - name: aron
+          keys:
+            - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDXwikEo63L4EJiUE4k7EInZMjaRSyBf5eIah/RrIBVXpmDh+H4C3xnvFLSdq0AV7rFWr6lsX1SHbnJOKjutqBx8h22f5KW/fCmGNB4S71yuAs38t9G2Lt3AqOYf8yyo3Hu0C1TWpIeGwK/GGpq1+cgq7W3FDK8QaBj3TapOJUThAN+MbKL9yaaCCAq8c/MojMH8/qL8BE8TAH5b1/k/nk963CXPsD66mkOWAHCsBmzLNtmspUL563/HyPLaRMxaglciTIyTQOvdXR695vlm3P4HvptA20nplSuBN4SO+/P8JET0u0d+3SGZy9rJd0I162p+9BR4NokqVIZ8oc/ySHN aron@kagalakan
+  roles:
+    - createusers
