@@ -1,6 +1,6 @@
 ---
 - name: create listed users
-  user: name={{ item.name }} state=present
+  user: name={{ item.name }} group={{ item.group }} state=present
   sudo: yes
   with_items: users
   tags:
