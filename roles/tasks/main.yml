@@ -1,0 +1,17 @@
+---
+- name: ensure PF is enabled
+  lineinfile: dest=/etc/rc.conf line='pf_enable="YES"'
+  sudo: yes
+  tags:
+    - setfirewall
+
+- name: copy pf config
+  copy: src={{ pf_config_template }}
+        dest={{ pf_config_file }}
+        validate='pfctl -vnf %s'
+        backup=yes
+  sudo: yes
+  notify:
+    - reload pf
+  tags:
+    - setfirewall

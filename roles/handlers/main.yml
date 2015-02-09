@@ -1,0 +1,4 @@
+---
+- name: reload pf
+  sudo: yes
+  command: pfctl -f all -f {{ pf_config_file }}
