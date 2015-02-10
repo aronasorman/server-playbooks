@@ -1,0 +1,23 @@
+---
+- name: ensure PF is enabled on boot
+  lineinfile: dest=/etc/rc.conf line='pf_enable="YES"' state=present
+  sudo: yes
+  tags:
+    - setfirewall
+
+- name: ensure pf is started
+  service: name=pf state=started
+  sudo: yes
+  tags:
+    - setfirewall
+
+- name: copy pf config
+  copy: src=pf.conf
+        dest=/etc/pf.conf
+        validate='pfctl -vnf %s'
+        backup=yes
+  sudo: yes
+  notify:
+    - reload pf
+  tags:
+    - setfirewall
