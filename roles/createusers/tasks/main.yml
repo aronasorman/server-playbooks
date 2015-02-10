@@ -1,4 +1,10 @@
 ---
+- name: create users group
+  group: name=users state=present
+  sudo: yes
+  tags:
+    - setusers
+
 - name: create listed users
   user: name={{ item.name }} group={{ item.group }} state=present
   sudo: yes
