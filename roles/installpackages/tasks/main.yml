@@ -1,0 +1,16 @@
+---
+- name: install packages (FreeBSD)
+  sudo: yes
+  pkgng: name={{ item }} state=present
+  with_items: packages
+  ignore_errors: yes
+  tags:
+    - installpackages
+
+- name: install packages (Debian)
+  sudo: yes
+  apt: name={{ item }} state=present
+  with_items: packages
+  ignore_errors: yes
+  tags:
+    - installpackages
