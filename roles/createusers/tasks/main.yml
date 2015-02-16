@@ -15,6 +15,7 @@
 - name: add SSH keys
   authorized_key: user={{ item.0.name }} key='{{ item.1 }}'
   sudo: yes
+  ignore_errors: yes            # might have no ssh key
   with_subelements:
     - users
     - keys
