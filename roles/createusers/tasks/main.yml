@@ -1,6 +1,7 @@
 ---
-- name: create users group
-  group: name=users state=present
+- name: create groups given in groups var
+  group: name={{ item }} state=present
+  with_items: groups
   sudo: yes
   tags:
     - setusers
