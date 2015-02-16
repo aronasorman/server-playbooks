@@ -1,0 +1,2 @@
+[backup_servers]
+daemonson ansible_ssh_host=107.170.254.57 ansible_ssh_user=freebsd ansible_python_interpreter=/usr/local/bin/python2 sudoers_location=/usr/local/etc/sudoers
