@@ -1,6 +1,8 @@
 ---
 - hosts: blog_server
   vars:
+    - groups:
+        - "www-data"
     - users:
         - name: aron
           group: wheel
