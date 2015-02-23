@@ -6,7 +6,7 @@
     - setupprocessaccounting
 
 - name: create the account file
-  file: path=/var/account/acct state=touch
+  file: path=/var/account/acct state=touch mode=640
   sudo: yes
   tags:
     - setupprocessaccounting
