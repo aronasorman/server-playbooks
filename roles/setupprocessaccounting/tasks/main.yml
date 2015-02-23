@@ -1,0 +1,24 @@
+---
+- name: make sure /var/account exists
+  file: path=/var/account state=directory
+  sudo: yes
+  tags:
+    - setupprocessaccounting
+
+- name: create the account file
+  file: path=/var/account/acct state=touch
+  sudo: yes
+  tags:
+    - setupprocessaccounting
+
+- name: enable process accounting on startup
+  lineinfile: dest=/etc/rc.conf line='accounting_enable="YES"' state=present
+  sudo: yes
+  tags:
+    - setupprocessaccounting
+
+- name: enable process accounting NOW
+  shell: accton /var/account/acct
+  sudo: yes
+  tags:
+    - setupprocessaccounting
